@@ -87,6 +87,11 @@ public class EmployeeController {
 		return "hii";
 	}
 
+	@GetMapping("/health")
+	public String healthCheck() {
+		return "Employee Rating System is running!";
+	}
+
 	@DeleteMapping("/delete/{empid}")
 	public ResponseEntity<?> delete(@PathVariable(name = "empid") String empid) {
 		return employeeService.deleteDetails(empid);
