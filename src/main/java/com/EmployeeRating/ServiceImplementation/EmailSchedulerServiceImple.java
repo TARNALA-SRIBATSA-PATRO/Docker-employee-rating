@@ -37,7 +37,7 @@ public class EmailSchedulerServiceImple implements EmailSchedulerService {
 
 	public String getHtmlTemplate(String filename) throws Exception {
 		ClassPathResource resource = new ClassPathResource("static/" + filename);
-		return new String(Files.readAllBytes(resource.getFile().toPath()), StandardCharsets.UTF_8);
+		return new String(resource.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
 	}
 	// @Scheduled(cron = "0 0 11 25 * ?") have to change it to 25th of every month
 	@Scheduled(cron = "0 * * * * ?")
