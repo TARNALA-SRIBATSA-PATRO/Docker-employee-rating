@@ -144,7 +144,7 @@ public class ExcelGenerator {
 	public static byte[] generateForProjectManager(List<Employee> employees)
 			throws IOException, InvalidFormatException {
 		ClassPathResource resource = new ClassPathResource("static/final.xlsm"); // ✅ no "static/" here
-		OPCPackage pkg = OPCPackage.open(resource.getFile()); // ✅ must use getFile(), not getInputStream
+		OPCPackage pkg = OPCPackage.open(resource.getInputStream()); // Use getInputStream for WAR/JAR compatibility
 		XSSFWorkbook workbook = new XSSFWorkbook(pkg); // ✅ macro-friendly workbook
 
 		Sheet sheet = workbook.getSheetAt(0);
