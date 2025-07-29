@@ -22,13 +22,22 @@ A Spring Boot application for employee performance rating and evaluation.
 
 For production deployment on Render:
 
+### Database Configuration
 ```
 SPRING_PROFILES_ACTIVE=prod
-SPRING_DATASOURCE_URL=your_postgresql_url
+SPRING_DATASOURCE_URL=jdbc:postgresql://your-host:5432/your-database
 SPRING_DATASOURCE_USERNAME=your_username
 SPRING_DATASOURCE_PASSWORD=your_password
 SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+```
+
+### Email Configuration
+```
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
 ```
 
 ## Local Development
