@@ -66,6 +66,10 @@ public class Employee {
 	
 	private String designation;
 	
+	private String department;
+	
+	private String employmentType;
+	
 	private boolean isPmoSubmitted;
 	
 	private LocalDate joiningDate;
