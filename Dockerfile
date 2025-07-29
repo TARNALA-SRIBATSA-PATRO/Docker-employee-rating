@@ -27,8 +27,8 @@ FROM eclipse-temurin:17-jre-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy the built JAR from the build stage
-COPY --from=0 /app/target/*.jar app.jar
+# Copy the built WAR from the build stage
+COPY --from=0 /app/target/*.war app.war
 
 # Expose port 8080
 EXPOSE 8080
@@ -37,4 +37,4 @@ EXPOSE 8080
 ENV JAVA_OPTS="-Xmx512m -Xms256m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
 
 # Run the application
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"] 
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.war"] 
