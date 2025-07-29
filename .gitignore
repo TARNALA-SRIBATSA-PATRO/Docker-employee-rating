@@ -31,3 +31,16 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Deployment Files ###
+*.zip
+*.war
+deployment-package/
+employee-rating-deployment.zip
+
+### IDE Files ###
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
