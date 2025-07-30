@@ -148,7 +148,7 @@ public class EmailSchedulerServiceImple implements EmailSchedulerService {
 			List<Employee> employees = entry.getValue();
 			try {
 				String htmlContent = getHtmlTemplate("email-template(for pmo and hr).html");
-				htmlContent = htmlContent.replace("${ratinglink}", "https://employee-rating-app-t2cr.vercel.app/employee?teamLeadEmail="
+				htmlContent = htmlContent.replace("${ratinglink}", "https://docker-employee-rating-4.onrender.com/api/employee?manager="
 						+ entry.getValue().get(0).getProjectManagerEmail());
 				htmlContent = htmlContent.replace("${name}", employees.get(0).getProjectManagerName().toUpperCase());
 				model.setToEmail(email);
