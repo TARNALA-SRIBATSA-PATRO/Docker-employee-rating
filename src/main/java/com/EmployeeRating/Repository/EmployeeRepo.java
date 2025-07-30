@@ -14,4 +14,10 @@ public interface EmployeeRepo extends JpaRepository<Employee,Long>{
 	List<Employee> findByProjectManagerEmail(String projectManagerEmail);
 
 	List<Employee> findByPmoEmail(String managerOfficer);
+	
+	List<Employee> findByTeamLeadEmail(String teamLeadEmail);
+	
+	List<Employee> findByNoticePeriodFalseAndProbationaPeriodFalse();
+	
+	List<Employee> findByTeamLeadEmailAndNoticePeriodFalseAndProbationaPeriodFalse(String teamLeadEmail);
 }

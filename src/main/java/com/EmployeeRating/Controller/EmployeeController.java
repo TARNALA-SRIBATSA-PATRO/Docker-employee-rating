@@ -65,6 +65,11 @@ public class EmployeeController {
 		return employeeService.fetchAll();
 	}
 
+	@GetMapping("/fetchAll/{teamLeadEmail}")
+	public ResponseEntity<?> fetchAllByTeamLeadEmail(@PathVariable String teamLeadEmail) {
+		return employeeService.fetchAllByTeamLeadEmail(teamLeadEmail);
+	}
+
 	@GetMapping("/get")
 	public ResponseEntity<?> getEmployeeWithSpecificData(
 			@RequestParam(name = "date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {

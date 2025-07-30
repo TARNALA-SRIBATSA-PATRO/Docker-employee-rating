@@ -18,5 +18,7 @@ public class IndividualData {
 	private String employmentType;
 	private LocalDate joiningDate;
 	private String designation;
+	private boolean noticePeriod;
+	private boolean probationaPeriod;
 
 }

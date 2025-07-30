@@ -15,6 +15,8 @@ public interface EmployeeService {
 
 	ResponseEntity<?> fetchAll();
 
+	ResponseEntity<?> fetchAllByTeamLeadEmail(String teamLeadEmail);
+
 	ResponseEntity<?> getEmployee(LocalDate date);
 
 	ResponseEntity<?> getByCriteria(String managerEmail);

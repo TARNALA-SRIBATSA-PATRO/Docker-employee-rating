@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import com.EmployeeRating.Dto.EmployeeDto;
 import com.EmployeeRating.Dto.FormData;
 import com.EmployeeRating.Dto.IndividualData;
+import com.EmployeeRating.Dto.TeamLeadEmployeeDto;
 import com.EmployeeRating.Entity.Employee;
 import com.EmployeeRating.Entity.EmployeeRatingTracker;
 import com.EmployeeRating.Repository.EmployeeRatingTrackerRepo;
@@ -84,8 +85,22 @@ public class EmployeeServiceImple implements EmployeeService {
 
 	@Override
 	public ResponseEntity<?> fetchAll() {
-		List<Employee> employees = employeeRepo.findAll();
+		List<Employee> employees = employeeRepo.findByNoticePeriodFalseAndProbationaPeriodFalse();
 		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<?> fetchAllByTeamLeadEmail(String teamLeadEmail) {
+		List<Employee> employees = employeeRepo.findByTeamLeadEmailAndNoticePeriodFalseAndProbationaPeriodFalse(teamLeadEmail);
+		List<TeamLeadEmployeeDto> teamLeadEmployees = employees.stream()
+			.map(employee -> new TeamLeadEmployeeDto(
+				employee.getEmployeeId(),
+				employee.getDesignation(),
+				employee.getEmployeeName(),
+				employee.getProjectName()
+			))
+			.collect(Collectors.toList());
+		return new ResponseEntity<List<TeamLeadEmployeeDto>>(teamLeadEmployees, HttpStatus.OK);
 	}
 
 	@Override
@@ -176,6 +191,8 @@ public class EmployeeServiceImple implements EmployeeService {
 	        employee.setDesignation(individual.getDesignation());
 	        employee.setDepartment(individual.getDepartment());
 	        employee.setEmploymentType(individual.getEmploymentType());
+	        employee.setNoticePeriod(individual.isNoticePeriod());
+	        employee.setProbationaPeriod(individual.isProbationaPeriod());
 
 	        // Set common fields
 	        employee.setProjectName(formData.getProjectName());
