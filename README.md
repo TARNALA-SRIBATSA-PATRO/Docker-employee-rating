@@ -36,8 +36,8 @@ SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
 ```
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
-MAIL_USERNAME=filemanzil@gmail.com
-MAIL_PASSWORD=iqwu kglg vjgo qiwg
+MAIL_USERNAME- mail id
+MAIL_PASSWORD=app password
 ```
 
 ## Local Development
