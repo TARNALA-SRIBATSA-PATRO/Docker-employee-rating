@@ -8,15 +8,12 @@ A Spring Boot application for employee performance rating and evaluation.
 - Performance rating system
 - Email notifications
 - PDF and Excel report generation
-- Docker support for deployment
 
 ## Technology Stack
 
 - **Backend**: Spring Boot 2.7.18
 - **Database**: PostgreSQL (Production), MySQL (Development)
 - **Build Tool**: Maven
-- **Container**: Docker
-- **Deployment**: Render
 
 ## Environment Variables
 
@@ -39,16 +36,3 @@ MAIL_PORT=587
 MAIL_USERNAME- mail id
 MAIL_PASSWORD=app password
 ```
-
-## Local Development
-
-1. Clone the repository
-2. Run with MySQL database
-3. Access at `http://localhost:8080`
-
-## Production Deployment
-
-1. Deploy to Render with Docker
-2. Configure PostgreSQL database
-3. Set environment variables
-4. Access via Render URL 
