@@ -83,7 +83,7 @@ public class EmailSchedulerServiceImple implements EmailSchedulerService {
 						String htmlContent = getHtmlTemplate("email-template(rating page).html");
 						// Replace the button link in the template with team lead email parameter
 						htmlContent = htmlContent.replace("<a href=\"#\" class=\"btn\">Please Give the Employee Ratings</a>",
-								"<a href=\"https://employee-rating-app-t2cr.vercel.app/employee?teamLeadEmail=" + employee.getTeamLeadEmail() + "\" class=\"btn\">Please Give the Employee Ratings</a>");
+								"<a href=\"https://employee-rating-six.vercel.app/employee?teamLeadEmail=" + employee.getTeamLeadEmail() + "\" class=\"btn\">Please Give the Employee Ratings</a>");
 						htmlContent = htmlContent.replace("${name}", employee.getEmployeeName().toUpperCase());
 						model.setBody(htmlContent);
 						emailSenderService.sendEmailWithAttachmentToTl(model);
